@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyShop</title>
+    <style>
+        /* Basic reset for clean layout */
+        body {
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        /* 2. CSS: Dark navy background, flexbox layout */
+        header {
+            background-color: #1c2833; /* Dark navy */
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            flex-wrap: wrap; /* Allows menu to drop down on small screens */
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+        }
+
+        /* 2. CSS: Blue background on hover */
+        nav a:hover {
+            background-color: blue;
+        }
+
+        /* 3. CSS: Hide hamburger button on wide screens */
+        .menu-btn {
+            display: none;
+            background: transparent;
+            color: white;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        /* 3. CSS: Media query for screens up to 600px */
+        @media (max-width: 600px) {
+            .menu-btn {
+                display: block; /* Show the button */
+            }
+
+            nav {
+                display: none; /* Hide the menu by default */
+                flex-direction: column; /* Stack the links */
+                width: 100%; /* Take full width below the header */
+                margin-top: 10px;
+            }
+
+            nav a {
+                padding: 12px 5px;
+            }
+
+            /* 4. JS/CSS: Class to show menu when toggled */
+            nav.open {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. HTML: Header, logo, menu button, and nav -->
+    <header>
+        <div class="logo">MyShop</div>
+        <button class="menu-btn" id="menuBtn">&#9776;</button>
+        <nav id="navMenu">
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <!-- 1. HTML: Main section with heading and paragraph -->
+    <main>
+        <h1>Welcome to MyShop</h1>
+        <p>Resize the browser window to see the menu change.</p>
+    </main>
+
+    <script>
+        // 4. JavaScript: Toggle 'open' class on menu click
+        const menuBtn = document.getElementById('menuBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        menuBtn.addEventListener('click', function() {
+            navMenu.classList.toggle('open');
+        });
+    </script>
+
+</body>
+</html>
